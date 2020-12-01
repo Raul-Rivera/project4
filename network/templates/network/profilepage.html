@@ -1,0 +1,30 @@
+{% extends "network/index.html" %}
+{% block pname %}
+<div class="top">
+<h1 class="pname"><u><b>{{profilename}}</b></u></h1>
+<hr>
+<div id="followdiv">
+    {% if user.username %}
+    {% if user.username != profilename %}
+    {% if isfollow %}
+    <a href="{% url 'unfollowuser' profilename %}"><button class="btn btn-danger">Unfollow</button></a>
+    {% else %}
+    <a href="{% url 'followuser' profilename %}"><button class="btn btn-success">Follow</button></a>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    <div>
+        <br>
+        <p><b>Followers:</b>{{followers}}<br>
+        <b>Following:</b>{{following}}</p>
+        <hr>
+    </div>
+</div>
+</div>
+
+
+
+{% endblock %}
+{% block allorprofile %}
+<h3><p>Posts by <b><cite>{{profilename}}</cite></b> </p></h3>
+{% endblock %}
