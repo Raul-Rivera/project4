@@ -1,17 +1,17 @@
 /* width */
 ::-webkit-scrollbar {
-    width: 20px;
+    width: 23px;
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: white;
+    background: #dae8ed;
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: teal;
-    border: greenyellow;
+    background: #318254;
+    border: black;
   }
 
   /* Handle on hover */
@@ -20,47 +20,50 @@
   }
 
 body{
-    background-color:  #4ddbff;
-    font-family: cursive;
+    background-color:  #3387a6;
+    font-family: Helvetica;
+    font-size: 21px;
 }
+
 .body {
   padding: 30px;
 }
 #jumbo{
-    padding: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
-    background-color: #ff99c2;
+    padding: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color: #dae8ed;
+    color: #318254;
 }
 .userurl {
   color: white;
-  font-weight: 800;
-  padding: 5px;
-  background-color: #800033;
+  font-weight: 1000;
+  padding: 9px;
+  background-color: #318254;
   border-style: solid;
-  border-color: #800033;
-  border-width: 2px;
-  border-radius: 4px;
+  border-color: #3387a6;
+  border-width: 3px;
+  border-radius: 6px;
 }
 .card{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-    background-color: #ff80b3;
-    font-family: times;
+    box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
+    background-color: #dae8ed;
+    font-family: Helvetica;
 }
 .card-body{
   background-color: white;
-    font-family: times;
-    font-size: 25px;
-    font-weight: bold;
+    font-family: Helvetica;
+    font-size: 23px;
+    font-weight: normal;
 }
 .pname {
-  color: #800033;
-  font-family: times;
+  color: #318254;
+  font-family: Helvetica;
 }
 form{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 25px;
-    font-weight: bold;
+    font-family: Helvetica;
+    font-size: 23px;
+    font-weight: normal;
 }
 .likebtn,.unlikebtn{
     cursor: pointer;

@@ -5,24 +5,21 @@
 <div class="jumbotron" id="jumbo">
     {% block pname %}
     {% if user.username %}
-<h3>Welcome <b>{{user.username}}</b></h3>
+<h1>🕊🕊🕊 <b> "{{user.username}}"</b></h1>
 {% else %}
-<h3><b>Welcome Guest !</b></h3>
+<h3><b>Welcome to your new Social Network!</b></h3>
 {% endif %}
 {% endblock %}
 {% if not page_obj %}
     <p>No posts yet!!!</p>
     {% else %}
     {% block allorprofile %}
-    <p>Have a look at all the posts.</p>
+    <p>Do not miss the latest tweets from famous people.</p>
     {% endblock %}
     {% endif %}
 </div>
 
 <div class="container" id="posts">
-
-
-
 
   {% block forposts %}
     {% for bpost in page_obj %}
