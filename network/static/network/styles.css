@@ -10,13 +10,13 @@
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #318254;
+    background: #21a0bf;
     border: black;
   }
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #593b1c;
+    background: #021617;
   }
 
 body{
@@ -28,8 +28,8 @@ body{
 .body {
   padding: 30px;
   color: white;
-
 }
+
 #jumbo{
     padding: 10%;
     margin-left: 0%;
@@ -42,7 +42,7 @@ body{
   color: white;
   font-weight: 1000;
   padding: 9px;
-  background-color: #318254;
+  background-color: #21a0bf;
   border-style: solid;
   border-color: #113136;
   border-width: 3px;
@@ -61,7 +61,7 @@ body{
     font-weight: normal;
 }
 .pname {
-  color: #318254;
+  color: #3dafcc;
   font-family: Helvetica;
 }
 form{
