@@ -5,6 +5,7 @@ from django.db import models
 class User(AbstractUser):
     pass
 
+
 class Blogpost(models.Model):
     username = models.CharField(max_length=64)
     content = models.TextField()
@@ -20,6 +21,7 @@ class Blogpost(models.Model):
             "likes": self.likes
         }
 
+
 class Followinfo(models.Model):
     username = models.CharField(max_length=64)
     follower = models.CharField(max_length=64)
@@ -30,6 +32,7 @@ class Followinfo(models.Model):
             "user": self.username,
             "follower": self.follower
         }
+
 
 class Like(models.Model):
     postid = models.IntegerField()

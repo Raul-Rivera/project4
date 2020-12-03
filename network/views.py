@@ -10,6 +10,7 @@ from .models import User,Blogpost,Followinfo,Like
 from django.core import serializers
 from django.core.paginator import Paginator
 
+
 def index(request):
     try:
         allposts = Blogpost.objects.all()
@@ -30,12 +31,14 @@ def index(request):
     cuser.append(request.user.username)
     return render(request, 'network/index.html', {'page_obj': page_obj,'likedids':likedids,'cuser':cuser})
 
+
 @login_required
 def writepost(request):
     if request.user.username:
-        return render(request,"network/writepost.html")
+        return render(request,"network/newpost.html")
     else:
         return redirect('index')
+
 
 @csrf_exempt
 @login_required
@@ -89,7 +92,7 @@ def profilepage(request,uname):
         likedids =  None
     cuser=[]
     cuser.append(request.user.username)
-    return render(request,'network/profilepage.html',
+    return render(request,'network/profile.html',
     {
         'page_obj': page_obj,
         'profilename': uname,
@@ -113,6 +116,7 @@ def followuser(request,name):
         flist.save()
     return redirect('profilepage',uname=name)
 
+
 @csrf_exempt
 @login_required
 def unfollowuser(request,name):
@@ -122,9 +126,6 @@ def unfollowuser(request,name):
     except:
         return redirect('profilepage',uname=name)
     return redirect('profilepage',uname=name)
-
-
-
 
 
 @login_required
@@ -161,7 +162,7 @@ def followingposts(request):
         likedids =  None
     cuser=[]
     cuser.append(request.user.username)
-    return render(request,"network/followingpage.html",{
+    return render(request,"network/following.html",{
             "page_obj":page_obj,
             "likedids":likedids,
             "cuser":cuser
@@ -198,6 +199,7 @@ def followapi(request,name):
         return JsonResponse({"user":name,"followers":followers,"following":following,"is_follow":is_follow})
     else:
         return JsonResponse({"error":"INVALID ACCESS"},status=404)
+
 
 @csrf_exempt
 @login_required

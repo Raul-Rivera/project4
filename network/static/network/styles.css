@@ -1,23 +1,23 @@
-/* width */
 ::-webkit-scrollbar {
     width: 23px;
-  }
+}
 
-  /* Track */
-  ::-webkit-scrollbar-track {
+
+::-webkit-scrollbar-track {
     background: white;
-  }
+}
 
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+
+::-webkit-scrollbar-thumb{
     background: #21a0bf;
     border: black;
-  }
+}
 
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+
+::-webkit-scrollbar-thumb:hover{
     background: #021617;
-  }
+}
+
 
 body{
     background-color:  #113136;
@@ -25,10 +25,12 @@ body{
     font-size: 21px;
 }
 
-.body {
+
+.body{
   padding: 30px;
   color: white;
 }
+
 
 #jumbo{
     padding: 10%;
@@ -38,42 +40,53 @@ body{
     color: white;
 }
 
-.userurl {
-  color: white;
-  font-weight: 1000;
-  padding: 9px;
-  background-color: #21a0bf;
-  border-style: solid;
-  border-color: #113136;
-  border-width: 3px;
-  border-radius: 6px;
+
+.userurl{
+    color: white;
+    font-weight: 1000;
+    padding: 9px;
+    background-color: #21a0bf;
+    border-style: solid;
+    border-color: #113136;
+    border-width: 3px;
+    border-radius: 6px;
 }
+
+
 .card{
     padding: 3%;
     box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
     background-color: #284d54;
     font-family: Helvetica;
 }
+
+
 .card-body{
-  background-color: #47747d;
+    background-color: #47747d;
     font-family: Helvetica;
     font-size: 23px;
     font-weight: normal;
 }
-.pname {
+
+
+.pname{
   color: #3dafcc;
   font-family: Helvetica;
 }
+
+
 form{
     font-family: Helvetica;
     font-size: 23px;
     font-weight: normal;
 }
 
+
 .likebtn,.unlikebtn{
     cursor: pointer;
-    animation: bird 0.2s linear;
+    animation: bird 0.3s linear;
 }
+
 
 @keyframes bird{
     0%{

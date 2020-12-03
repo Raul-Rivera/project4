@@ -3,7 +3,7 @@
 {% block pname %}
 <div class="top">
 <h1 class="pname"><b>Profile: {{profilename}}</b></h1>
-<hr>
+<hr style="height:3px; background-color:#113136">
 <div id="followdiv">
     {% if user.username %}
     {% if user.username != profilename %}
@@ -17,12 +17,12 @@
     <div>
         <p><b>Followers:</b>{{followers}}<br>
         <b>Following:</b>{{following}}</p>
-        <hr>
+        <hr style="height:3px; background-color:#113136">
     </div>
 </div>
 </div>
 {% endblock %}
 
 {% block allorprofile %}
-<h3><p>Publications by <b><cite>{{profilename}}</cite></b> </p></h3>
+<h3><p>Posts by <b><cite>{{profilename}}</cite></b> </p></h3>
 {% endblock %}
