@@ -18,7 +18,7 @@
                 <p>No posts yet!!!</p>
                 {% else %}
                 {% block allorprofile %}
-                <p>Do not miss the latest tweets from famous people.</p>
+                <p>Do not miss the latest publications from famous people.</p>
                 {% endblock %}
                 {% endif %}
             </div>
@@ -43,9 +43,9 @@
                 <div class="card-footer" id="likes-{{bpost.id}}">
                   {% if user.username %}
                   {% if bpost.id in likedids %}
-                  <p><img class="unlikebtn" onclick="unlikepost({{bpost.id}},{{cuser}})" id="unlikebtn-{{bpost.id}}" src="https://img.icons8.com/cotton/64/000000/like--v1.png"/> <b>{{bpost.likes}}</b></p>
+                  <p><img class="unlikebtn" onclick="unlikepost({{bpost.id}},{{cuser}})" id="unlikebtn-{{bpost.id}}" src="https://img.icons8.com/color/48/000000/twitter.png"/> <b>{{bpost.likes}}</b></p>
                   {% else %}
-                  <p><img class="likebtn" onclick="likepost({{bpost.id}},{{cuser}})" id="likebtn-{{bpost.id}}" src="https://img.icons8.com/ios/50/000000/like.png"/> <b>{{bpost.likes}}</b></p>
+                  <p><img class="likebtn" onclick="likepost({{bpost.id}},{{cuser}})" id="likebtn-{{bpost.id}}" src="https://img.icons8.com/ios-filled/50/000000/twitter.png"/> <b>{{bpost.likes}}</b></p>
                   {% endif %}
                   {% endif %}
 

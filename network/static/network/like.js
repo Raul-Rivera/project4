@@ -21,7 +21,7 @@ function likepost(id,likedby){
           // Print result
           console.log(result);
           likesdiv = document.querySelector(`#likes-${id}`)
-          likesdiv.innerHTML = `<p><img class="unlikebtn" id="unlikebtn-${id}" src="https://img.icons8.com/cotton/64/000000/like--v1.png"/> <b>${likescount+1}</b></p>`
+          likesdiv.innerHTML = `<p><img class="unlikebtn" id="unlikebtn-${id}" src="https://img.icons8.com/color/48/000000/twitter.png"/> <b>${likescount+1}</b></p>`
           unlikebtn = document.querySelector(`#unlikebtn-${id}`)
           unlikebtn.onclick = ()=> {
             unlikepost(id,likedby)
@@ -53,7 +53,7 @@ function unlikepost(id,unlikedby){
           // Print result
           console.log(result);
           likesdiv = document.querySelector(`#likes-${id}`)
-          likesdiv.innerHTML = `<p><img class="likebtn" id="likebtn-${id}" src="https://img.icons8.com/ios/50/000000/like.png"/> <b>${likescount-1}</b></p>`
+          likesdiv.innerHTML = `<p><img class="likebtn" id="likebtn-${id}" src="https://img.icons8.com/ios-filled/50/000000/twitter.png"/> <b>${likescount-1}</b></p>`
           likebtn = document.querySelector(`#likebtn-${id}`)
           likebtn.onclick = ()=> {
             likepost(id,unlikedby)

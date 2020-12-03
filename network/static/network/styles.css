@@ -69,11 +69,13 @@ form{
     font-size: 23px;
     font-weight: normal;
 }
+
 .likebtn,.unlikebtn{
     cursor: pointer;
-    animation: heart 0.2s linear;
+    animation: bird 0.2s linear;
 }
-@keyframes heart{
+
+@keyframes bird{
     0%{
         transform: rotate(0deg);
     }
