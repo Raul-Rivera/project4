@@ -5,7 +5,7 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #dae8ed;
+    background: white;
   }
 
   /* Handle */
@@ -16,42 +16,46 @@
 
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #593b1c;
   }
 
 body{
-    background-color:  #3387a6;
+    background-color:  #113136;
     font-family: Helvetica;
     font-size: 21px;
 }
 
 .body {
   padding: 30px;
+  color: white;
+
 }
 #jumbo{
-    padding: 1%;
-    margin-left: 1%;
-    margin-right: 1%;
-    background-color: #dae8ed;
-    color: #318254;
+    padding: 10%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background-color: #284d54;
+    color: white;
 }
+
 .userurl {
   color: white;
   font-weight: 1000;
   padding: 9px;
   background-color: #318254;
   border-style: solid;
-  border-color: #3387a6;
+  border-color: #113136;
   border-width: 3px;
   border-radius: 6px;
 }
 .card{
+    padding: 3%;
     box-shadow: 0 9px 9px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
-    background-color: #dae8ed;
+    background-color: #284d54;
     font-family: Helvetica;
 }
 .card-body{
-  background-color: white;
+  background-color: #47747d;
     font-family: Helvetica;
     font-size: 23px;
     font-weight: normal;

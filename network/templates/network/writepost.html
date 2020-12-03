@@ -2,12 +2,13 @@
 
 {% block body %}
 <h2><b>Dear {{user.username}} , What's on your mind?</b></h2>
-<div class="container">
-    <br>
+<div class="container" style="background-color: #284d54; padding: 30px">
+
     <form action="{% url 'submitpost' %}" method="POST">
         <div class="form-group">
             <label for="exampleFormControlTextarea1"><b>Your thoughts here...<b></label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write your thoughts here..." name="content"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Write your thoughts here..."
+                name="content" style="background-color: white;"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>

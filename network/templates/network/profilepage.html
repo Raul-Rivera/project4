@@ -1,7 +1,8 @@
 {% extends "network/index.html" %}
+
 {% block pname %}
 <div class="top">
-<h1 class="pname"><u><b>{{profilename}}</b></u></h1>
+<h1 class="pname"><b>Profile: {{profilename}}</b></h1>
 <hr>
 <div id="followdiv">
     {% if user.username %}
@@ -14,17 +15,14 @@
     {% endif %}
     {% endif %}
     <div>
-        <br>
         <p><b>Followers:</b>{{followers}}<br>
         <b>Following:</b>{{following}}</p>
         <hr>
     </div>
 </div>
 </div>
-
-
-
 {% endblock %}
+
 {% block allorprofile %}
 <h3><p>Posts by <b><cite>{{profilename}}</cite></b> </p></h3>
 {% endblock %}

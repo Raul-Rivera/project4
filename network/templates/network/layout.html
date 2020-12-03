@@ -9,40 +9,39 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3387a6;">
-            <a class="navbar-brand" href="{% url 'index' %}" style="font-size: 66px; font-weight: bold">Home 🕊 </a>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #284d54;">
+            <a class="navbar-brand" href="{% url 'index' %}" style="font-size: 36px; font-weight: bold; color: white">Home 🕊 🕊 🕊 </a>
             <div>
               <ul class="navbar-nav mr-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profilepage' user.username %}" style="font-size: 36px; font-weight: bold"><strong>| {{ user.username }} |</strong></a>
+                        <a class="nav-link" href="{% url 'profilepage' user.username %}" style="font-size: 26px; font-weight: bold; color: white"><strong>| {{ user.username }} |</strong></a>
                     </li>
                 {% endif %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'index' %}" style="font-size: 36px; font-weight: bold">All Posts |</a>
+                  <a class="nav-link" href="{% url 'index' %}" style="font-size: 26px; font-weight: bold; color: white">All Posts |</a>
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'followingposts' %}" style="font-size: 36px; font-weight: bold">Following |</a>
+                        <a class="nav-link" href="{% url 'followingposts' %}" style="font-size: 26px; font-weight: bold; color: white">Following |</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'writepost' %}" style="font-size: 36px; font-weight: bold">New Post |</a>
+                        <a class="nav-link" href="{% url 'writepost' %}" style="font-size: 26px; font-weight: bold; color: white">New Post |</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}" style="font-size: 36px; font-weight: bold">Log Out</a>
+                        <a class="nav-link" href="{% url 'logout' %}" style="font-size: 26px; font-weight: bold; color: white">Log Out</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}" style="font-size: 36px; font-weight: bold">Log In |</a>
+                        <a class="nav-link" href="{% url 'login' %}" style="font-size: 26px; font-weight: bold; color: white">Log In |</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}" style="font-size: 36px; font-weight: bold">Register</a>
+                        <a class="nav-link" href="{% url 'register' %}" style="font-size: 26px; font-weight: bold; color: white">Register</a>
                     </li>
                 {% endif %}
               </ul>
             </div>
           </nav>
-          <hr style="border-top: 1px solid black;">
 
         <div class="body">
             {% block body %}
