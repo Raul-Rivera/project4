@@ -1,6 +1,6 @@
 function editpost(id){
 
-    fetch(`/postapi/${id}`)
+    fetch(`/apipost/${id}`)
 .then(response => response.json())
 .then(blogpost => {
     cardbody = document.querySelector(`#card-body-${id}`);
@@ -10,7 +10,7 @@ function editpost(id){
     const form = document.querySelector(`#editform-${blogpost.id}`);
     form.onsubmit = () => {
         const textarea = document.querySelector(`#textarea-${blogpost.id}`).value;
-        fetch(`/postapi/${blogpost.id}`, {
+        fetch(`/apipost/${blogpost.id}`, {
             method: 'PUT',
             body: JSON.stringify({
                 content: textarea,
@@ -26,7 +26,7 @@ function editpost(id){
 
 function showcontent(id){
     cardbody = document.querySelector(`#card-body-${id}`);
-    fetch(`/postapi/${id}`)
+    fetch(`/apipost/${id}`)
 .then(response => response.json())
 .then(blogpost => {
     cardbody.innerHTML = `<p>${blogpost.content}</p>`;
@@ -36,7 +36,7 @@ function showcontent(id){
 
 function likepost(id,likedby){
     console.log(`id:${id}\nliked by:${likedby}`)
-    fetch(`/postapi/${id}`)
+    fetch(`/apipost/${id}`)
 .then(response => response.json())
 .then(blogpost => {
     console.log(blogpost);
@@ -66,7 +66,7 @@ function likepost(id,likedby){
 
 function unlikepost(id,unlikedby){
     console.log(`id: ${id}\nunlikedby: ${unlikedby}`)
-    fetch(`/postapi/${id}`)
+    fetch(`/apipost/${id}`)
     .then(response => response.json())
     .then(bpost => {
                 console.log(bpost.likes);

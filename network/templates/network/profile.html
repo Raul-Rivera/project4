@@ -8,9 +8,9 @@
     {% if user.username %}
     {% if user.username != profilename %}
     {% if isfollow %}
-    <a href="{% url 'unfollowuser' profilename %}"><button class="btn btn-danger">Unfollow</button></a>
+    <a href="{% url 'unfollow' profilename %}"><button class="btn btn-danger">Unfollow</button></a>
     {% else %}
-    <a href="{% url 'followuser' profilename %}"><button class="btn btn-success">Follow</button></a>
+    <a href="{% url 'follow' profilename %}"><button class="btn btn-success">Follow</button></a>
     {% endif %}
     {% endif %}
     {% endif %}

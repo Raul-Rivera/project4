@@ -20,7 +20,7 @@
 
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profilepage' user.username %}" style="font-size: 33px; font-weight: bold; color: white"><strong>| {{ user.username }} |</strong></a>
+                            <a class="nav-link" href="{% url 'profile' user.username %}" style="font-size: 33px; font-weight: bold; color: white"><strong>| {{ user.username }} |</strong></a>
                         </li>
                     {% endif %}
 
@@ -30,10 +30,10 @@
 
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'followingposts' %}" style="font-size: 33px; font-weight: bold; color: white">Following |</a>
+                            <a class="nav-link" href="{% url 'followpost' %}" style="font-size: 33px; font-weight: bold; color: white">Following |</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'writepost' %}" style="font-size: 33px; font-weight: bold; color: white">New Post |</a>
+                            <a class="nav-link" href="{% url 'newpost' %}" style="font-size: 33px; font-weight: bold; color: white">New Post |</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'logout' %}" style="font-size: 33px; font-weight: bold; color: white">Log Out</a>

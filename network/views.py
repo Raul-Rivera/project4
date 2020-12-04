@@ -33,7 +33,7 @@ def index(request):
 
 
 @login_required
-def writepost(request):
+def newpost(request):
     if request.user.username:
         return render(request,"network/newpost.html")
     else:
@@ -42,7 +42,7 @@ def writepost(request):
 
 @csrf_exempt
 @login_required
-def submitpost(request):
+def sendpost(request):
     if request.user.username:
         if request.method == "POST":
             blog = Blogpost()
@@ -57,7 +57,7 @@ def submitpost(request):
         return redirect('index')
 
 
-def profilepage(request,uname):
+def profile(request,uname):
     try:
         userposts = Blogpost.objects.filter(username=uname)
         userposts = userposts.order_by("-timestamp").all()
@@ -106,7 +106,7 @@ def profilepage(request,uname):
 
 @csrf_exempt
 @login_required
-def followuser(request,name):
+def follow(request,name):
     try:
         flist = Followinfo.objects.get(username=name,follower=request.user.username)
     except:
@@ -114,22 +114,22 @@ def followuser(request,name):
         flist.username = name
         flist.follower = request.user.username
         flist.save()
-    return redirect('profilepage',uname=name)
+    return redirect('profile',uname=name)
 
 
 @csrf_exempt
 @login_required
-def unfollowuser(request,name):
+def unfollow(request,name):
     try:
         flist = Followinfo.objects.get(username=name,follower=request.user.username)
         flist.delete()
     except:
-        return redirect('profilepage',uname=name)
-    return redirect('profilepage',uname=name)
+        return redirect('profile',uname=name)
+    return redirect('profile',uname=name)
 
 
 @login_required
-def followingposts(request):
+def followpost(request):
     try:
         following = Followinfo.objects.filter(follower=request.user.username)
 
@@ -238,7 +238,7 @@ def likesapi(request,postid):
 
 
 @csrf_exempt
-def postapi(request,postid):
+def apipost(request,postid):
     try:
         blogpost = Blogpost.objects.get(id=postid)
     except Blogpost.DoesNotExist:

@@ -30,7 +30,7 @@
                     {% for bpost in page_obj %}
                         <div class="card">
                         <div class="card-header">
-                        <h5><a class="userurl" href="{% url 'profilepage' bpost.username %}"><b>{{bpost.username}}<b></a></a></h5>
+                        <h5><a class="userurl" href="{% url 'profile' bpost.username %}"><b>{{bpost.username}}<b></a></a></h5>
                         <p>On {{bpost.timestamp}}</p>
                         {% if user.username == bpost.username %}
                         <button onclick=editpost({{bpost.id}}) class="btn btn-primary">Edit</button>
