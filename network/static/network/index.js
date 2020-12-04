@@ -1,4 +1,4 @@
-function editpost(id){
+function postedit(id){
 
     fetch(`/apipost/${id}`)
 .then(response => response.json())
@@ -17,14 +17,14 @@ function editpost(id){
                 username: blogpost.username
             })
           })
-        showcontent(`${blogpost.id}`);
+        postshow(`${blogpost.id}`);
         return false;
     }
 });
 }
 
 
-function showcontent(id){
+function postshow(id){
     cardbody = document.querySelector(`#card-body-${id}`);
     fetch(`/apipost/${id}`)
 .then(response => response.json())
@@ -34,7 +34,7 @@ function showcontent(id){
 }
 
 
-function likepost(id,likedby){
+function postlikee(id,likedby){
     console.log(`id:${id}\nliked by:${likedby}`)
     fetch(`/apipost/${id}`)
 .then(response => response.json())
@@ -57,14 +57,14 @@ function likepost(id,likedby){
             likesdiv.innerHTML = `<p><img class="unlikebtn" id="unlikebtn-${id}" src="https://img.icons8.com/color/48/000000/twitter.png"/> <b>${likescount+1}</b></p>`
             unlikebtn = document.querySelector(`#unlikebtn-${id}`)
             unlikebtn.onclick = ()=> {
-                unlikepost(id,likedby)
+                postunlikee(id,likedby)
                                        }
       });
 });
     }
 
 
-function unlikepost(id,unlikedby){
+function postunlikee(id,unlikedby){
     console.log(`id: ${id}\nunlikedby: ${unlikedby}`)
     fetch(`/apipost/${id}`)
     .then(response => response.json())
@@ -86,7 +86,7 @@ function unlikepost(id,unlikedby){
           likesdiv.innerHTML = `<p><img class="likebtn" id="likebtn-${id}" src="https://img.icons8.com/ios-filled/50/000000/twitter.png"/> <b>${likescount-1}</b></p>`
           likebtn = document.querySelector(`#likebtn-${id}`)
           likebtn.onclick = ()=> {
-            likepost(id,unlikedby)
+            postlikee(id,unlikedby)
                                     }
       });
                     });

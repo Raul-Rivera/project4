@@ -1,24 +1,3 @@
-::-webkit-scrollbar {
-    width: 23px;
-}
-
-
-::-webkit-scrollbar-track {
-    background: white;
-}
-
-
-::-webkit-scrollbar-thumb{
-    background: #21a0bf;
-    border: black;
-}
-
-
-::-webkit-scrollbar-thumb:hover{
-    background: #021617;
-}
-
-
 body{
     background-color:  #113136;
     font-family: Helvetica;
@@ -98,4 +77,25 @@ form{
     100%{
         transform: rotate(360deg);
     }
+}
+
+
+::-webkit-scrollbar {
+    width: 23px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+
+::-webkit-scrollbar-thumb{
+    background: #21a0bf;
+    border: black;
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+    background: #021617;
 }

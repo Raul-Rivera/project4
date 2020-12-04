@@ -6,7 +6,7 @@ class User(AbstractUser):
     pass
 
 
-class Blogpost(models.Model):
+class Pagepost(models.Model):
     username = models.CharField(max_length=64)
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -22,7 +22,7 @@ class Blogpost(models.Model):
         }
 
 
-class Followinfo(models.Model):
+class Infollow(models.Model):
     username = models.CharField(max_length=64)
     follower = models.CharField(max_length=64)
 
@@ -34,7 +34,7 @@ class Followinfo(models.Model):
         }
 
 
-class Like(models.Model):
+class Plike(models.Model):
     postid = models.IntegerField()
     likedby = models.CharField(max_length=64)
     likes = models.IntegerField()

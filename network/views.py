@@ -6,14 +6,14 @@ from django.shortcuts import render,redirect
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
-from .models import User,Blogpost,Followinfo,Like
+from .models import User,Pagepost,Infollow,Plike
 from django.core import serializers
 from django.core.paginator import Paginator
 
 
 def index(request):
     try:
-        allposts = Blogpost.objects.all()
+        allposts = Pagepost.objects.all()
         allposts = allposts.order_by("-timestamp").all()
         paginator = Paginator(allposts, 10) # Show 25 contacts per page.
         page_number = request.GET.get('page')
@@ -21,7 +21,7 @@ def index(request):
     except:
         page_obj = None
     try:
-        likeslist = Like.objects.filter(likedby=request.user.username)
+        likeslist = Plike.objects.filter(likedby=request.user.username)
         likedids = []
         for l in likeslist:
             likedids.append(l.postid)
@@ -45,7 +45,7 @@ def newpost(request):
 def sendpost(request):
     if request.user.username:
         if request.method == "POST":
-            blog = Blogpost()
+            blog = Pagepost()
             blog.username = request.user
             blog.content = request.POST.get('content')
             blog.likes = 0
@@ -59,7 +59,7 @@ def sendpost(request):
 
 def profile(request,uname):
     try:
-        userposts = Blogpost.objects.filter(username=uname)
+        userposts = Pagepost.objects.filter(username=uname)
         userposts = userposts.order_by("-timestamp").all()
         paginator = Paginator(userposts, 10) # Show 25 contacts per page.
         page_number = request.GET.get('page')
@@ -67,24 +67,24 @@ def profile(request,uname):
     except:
         userposts = None
     try:
-        if Followinfo.objects.filter(username=uname,follower=request.user.username):
+        if Infollow.objects.filter(username=uname,follower=request.user.username):
             is_follow = True
         else:
             is_follow = False
     except:
         is_follow = False
     try:
-        followerlist = Followinfo.objects.filter(username=uname)
+        followerlist = Infollow.objects.filter(username=uname)
         followers = followerlist.count()
     except:
         followers = 0
     try:
-        followinglist = Followinfo.objects.filter(follower=uname)
+        followinglist = Infollow.objects.filter(follower=uname)
         following=followinglist.count()
     except:
         following = 0
     try:
-        likeslist = Like.objects.filter(likedby=request.user.username)
+        likeslist = Plike.objects.filter(likedby=request.user.username)
         likedids = []
         for l in likeslist:
             likedids.append(l.postid)
@@ -108,9 +108,9 @@ def profile(request,uname):
 @login_required
 def follow(request,name):
     try:
-        flist = Followinfo.objects.get(username=name,follower=request.user.username)
+        flist = Infollow.objects.get(username=name,follower=request.user.username)
     except:
-        flist = Followinfo()
+        flist = Infollow()
         flist.username = name
         flist.follower = request.user.username
         flist.save()
@@ -121,7 +121,7 @@ def follow(request,name):
 @login_required
 def unfollow(request,name):
     try:
-        flist = Followinfo.objects.get(username=name,follower=request.user.username)
+        flist = Infollow.objects.get(username=name,follower=request.user.username)
         flist.delete()
     except:
         return redirect('profile',uname=name)
@@ -131,7 +131,7 @@ def unfollow(request,name):
 @login_required
 def followpost(request):
     try:
-        following = Followinfo.objects.filter(follower=request.user.username)
+        following = Infollow.objects.filter(follower=request.user.username)
 
         item=[]
         items=[]
@@ -139,7 +139,7 @@ def followpost(request):
         for f in following:
             funames.append(f.username)
         for f in funames:
-            bpost = Blogpost.objects.filter(username=f)
+            bpost = Pagepost.objects.filter(username=f)
             bpost=bpost.order_by("-timestamp").all()
             items.append(bpost)
 
@@ -154,7 +154,7 @@ def followpost(request):
         page_obj=None
 
     try:
-        likeslist = Like.objects.filter(likedby=request.user.username)
+        likeslist = Plike.objects.filter(likedby=request.user.username)
         likedids = []
         for l in likeslist:
             likedids.append(l.postid)
@@ -175,17 +175,17 @@ def followapi(request,name):
     try:
         if User.objects.get(username=name) :
             try:
-                followerlist = Followinfo.objects.filter(username=name)
+                followerlist = Infollow.objects.filter(username=name)
                 followers = followerlist.count()
             except:
                 followers = 0
             try:
-                followinglist = Followinfo.objects.filter(follower=name)
+                followinglist = Infollow.objects.filter(follower=name)
                 following=followinglist.count()
             except:
                 following = 0
             try:
-                if Followinfo.objects.filter(username=name,follower=request.user.username):
+                if Infollow.objects.filter(username=name,follower=request.user.username):
                     is_follow = True
                 else:
                     is_follow = False
@@ -206,18 +206,18 @@ def followapi(request,name):
 def likesapi(request,postid):
     if request.method == "GET":
         try:
-            postlike = Like.objects.get(postid=postid,likedby=request.user.username)
+            postlike = Plike.objects.get(postid=postid,likedby=request.user.username)
             return JsonResponse(postlike.serialize())
-        except Like.DoesNotExist:
+        except Plike.DoesNotExist:
             return JsonResponse({"error": "No like activity found"}, status=404)
     elif request.method == "POST":
         data = json.loads(request.body)
         if request.user.username == data.get("likedby"):
-            likerow = Like()
+            likerow = Plike()
             likerow.postid = data.get("id")
             likerow.likedby = data.get("likedby")
             likerow.likes = data.get("likes")
-            blikes = Blogpost.objects.get(id=data.get("id"))
+            blikes = Pagepost.objects.get(id=data.get("id"))
             blikes.likes = data.get("likes")
             blikes.save()
             likerow.save()
@@ -227,9 +227,9 @@ def likesapi(request,postid):
     elif request.method == "DELETE":
         data=json.loads(request.body)
         if request.user.username == data.get("unlikedby"):
-            likerow = Like.objects.get(postid=data.get("id"),likedby=data.get("unlikedby"))
+            likerow = Plike.objects.get(postid=data.get("id"),likedby=data.get("unlikedby"))
             likerow.delete()
-            blikes = Blogpost.objects.get(id=data.get("id"))
+            blikes = Pagepost.objects.get(id=data.get("id"))
             blikes.likes = data.get("likes")
             blikes.save()
             return JsonResponse({"message": "Unlike successful","status":201},status=201)
@@ -240,8 +240,8 @@ def likesapi(request,postid):
 @csrf_exempt
 def apipost(request,postid):
     try:
-        blogpost = Blogpost.objects.get(id=postid)
-    except Blogpost.DoesNotExist:
+        blogpost = Pagepost.objects.get(id=postid)
+    except Pagepost.DoesNotExist:
         return JsonResponse({"error": "post not found."}, status=404)
     if request.method == "GET":
         return JsonResponse(blogpost.serialize())
